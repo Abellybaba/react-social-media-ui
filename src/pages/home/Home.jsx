@@ -1,14 +1,14 @@
 import React from 'react';
 import Posts from '../../components/posts/Posts';
 import Stories from '../../components/stories/Stories';
-import { useContext } from "react";
-import {Navigate} from "react-router-dom";
-import { AuthContext } from "/Users/ableabel/Documents/GITREPO/react-social-media-ui/src/context/authContext.js";
+//import { useContext } from "react";
+//import {Navigate} from "react-router-dom";
+//import { AuthContext } from "./src/context/authContext.js";
 
 const Home = () => {
-  const currentUser = useContext(AuthContext);
+  // const currentUser = useContext(AuthContext);
 
-  console.log(currentUser);
+  // console.log(currentUser);
 
   // if (!currentUser) {
   //   return <Navigate to="/login" replace />;
