@@ -1,0 +1,10 @@
+.puro{
+    background-color: black;
+    display: grid;
+    grid-auto-flow:column;
+    scroll-behavior: auto;
+    overflow-y: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
