@@ -33,6 +33,8 @@ const Navbar = ({handleThemeSwitch, theme}) => {
                 </div>
               </button>
             </div>
+
+            {/* menu options from smaller screen */}
             <div className="flex justify-end lg:hidden">
               <button className="flex items-center">
                 <svg className="text-indigo-500 bg-indigo-100 block h-8 w-8 p-2 rounded" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
@@ -40,7 +42,9 @@ const Navbar = ({handleThemeSwitch, theme}) => {
                   <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                 </svg>
               </button>
+              
             </div>
+
             <div className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:flex lg:w-auto lg:space-x-10">
               <div className="hidden lg:flex items-center mr-auto pl-4 border rounded">
                 <button className="mr-2 text-gray-200 hover:text-gray-300">

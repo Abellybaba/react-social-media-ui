@@ -16,6 +16,7 @@ import RightBar from "./components/rightBar/RightBar";
 import { AuthContext } from "./context/authContext";
 import { useContext, useEffect, useState } from "react";
 import ErrorPage from "./pages/ErrorPage";
+import "./app.scss";
 //import { DarkModeContext } from "./context/darkModeContext"
 
 function App() {
@@ -44,11 +45,11 @@ function App() {
 
   const Layout = () => {
     return (
-      <div>
+      <div style={{}}>
         <Navbar handleThemeSwitch={handleThemeSwitch} theme={theme}/>
-        <div className="flex h-screen">
-          <LeftBar className="" />
-          <div className="" style={{ flex: 6 }}>
+        <div className="flex h-screen overflow-auto overscroll-none">
+          <LeftBar className=" overscroll-none"/>
+          <div className="overscroll-none" style={{ flex: 6 }}>
             <Outlet />
           </div>
           <RightBar />

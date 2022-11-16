@@ -1,8 +1,5 @@
 .rightStyle {
-      flex: 3;
-      position: sticky;
-      top: 70px;
-      height: calc(100vh - 70px);
-      
-      background-color: themed("bgSoft");
+  &::-webkit-scrollbar {
+    display: none;
+  }
     }
