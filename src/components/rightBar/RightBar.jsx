@@ -1,11 +1,13 @@
-import React from 'react'
+import React from 'react';
+import "./rightBar.scss";
+
 
 
 const RightBar = () => {
   return (
     <div className="hidden lg:block max-h-screen sticky-top overflow-scroll p-5 max-w-lg bg-gray-100 dark:bg-slate-800" style={{ flex: 3 }}>
       {/* First Suggestion section on the right bar */}
-      <div className="mt-14 container h-60 bg-slate-50 dark:bg-slate-700 rounded shadow-lg overflow-auto">
+      <div className=" mt-14 container h-60 bg-slate-50 dark:bg-slate-700 rounded shadow-lg overflow-auto">
       <h4 className="text-gray-500 p-2 ml-3 mt-3 dark:text-white">Latest Activities</h4>
         <div className="px-3">
         
@@ -35,7 +37,7 @@ const RightBar = () => {
       </div>
 
         {/* Latest Activity section */}
-      <div className="mt-5 container h-60 bg-slate-50 rounded shadow-lg overflow-auto dark:bg-slate-700">
+      <div className=" mt-5 container h-60 bg-slate-50 rounded shadow-lg overflow-auto dark:bg-slate-700">
       <h4 className="text-gray-500 p-2 ml-3 mt-3 dark:text-white">Latest Activities</h4>
         <div className="px-3">
       
@@ -88,7 +90,7 @@ const RightBar = () => {
       </div>
 
       {/* Online friends section right bar */}
-      <div className="mt-5 container h-60 bg-slate-50 rounded shadow-lg overflow-auto dark:bg-slate-700">
+      <div className=" mt-5 container h-60 bg-slate-50 rounded shadow-lg overflow-auto dark:bg-slate-700">
       <h4 className="text-gray-500 p-2 ml-3 mt-3 dark:text-white">Online Friends</h4>
         <div className="px-3"> 
           <div className="flex flex-wrap justify-between align-center p-2 border-b">
