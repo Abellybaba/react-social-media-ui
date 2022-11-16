@@ -8,51 +8,65 @@ import {
   RouterProvider,
   Outlet,
   Navigate,
-  Route,
+
 } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import LeftBar from "./components/leftBar/LeftBar";
 import RightBar from "./components/rightBar/RightBar";
 import { AuthContext } from "./context/authContext";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import ErrorPage from "./pages/ErrorPage";
+//import { DarkModeContext } from "./context/darkModeContext"
 
 function App() {
-const currentUser = useContext(AuthContext);
-//const currentUser = true;
+  const currentUser = useContext(AuthContext);
 
-const ProtectedRoute = ({children, redirectPath = '/login',}) => {
-  if (!currentUser) {
-    return <Navigate to={redirectPath} replace/>;
+  const [theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [theme]);
+
+  const handleThemeSwitch = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+
+  const ProtectedRoute = ({ children, redirectPath = '/login', }) => {
+    if (!currentUser) {
+      return <Navigate to={redirectPath} replace />;
+    }
+    return children;
   }
-  return children;
-}
 
   const Layout = () => {
     return (
       <div>
-        <Navbar/>
+        <Navbar handleThemeSwitch={handleThemeSwitch} theme={theme}/>
         <div className="flex h-screen">
-          <LeftBar className=""/>
-          <div className="" style={{ flex: 6}}>
-          <Outlet/>
+          <LeftBar className="" />
+          <div className="" style={{ flex: 6 }}>
+            <Outlet />
           </div>
-          <RightBar/>
+          <RightBar />
         </div>
       </div>
     )
   }
 
   const router = createBrowserRouter([
-    
+
     {
       path: "/",
       element: (
-      <ProtectedRoute>
-        <Layout />
+        <ProtectedRoute>
+          <Layout />
         </ProtectedRoute>),
-      errorElement: <ErrorPage />,
-      children:[
+      errorElement: <Login2 />,
+      children: [
         {
           path: "/",
           element: <Home />,
@@ -66,18 +80,22 @@ const ProtectedRoute = ({children, redirectPath = '/login',}) => {
     },
     {
       path: "/login",
-      element: <Login2/>,
+      element: <Login2 />,
     },
     {
       path: "/register",
       element: <Register />,
     },
-  
+    {
+      path: "*",
+      element: <ErrorPage />,
+    },
+
   ]);
 
 
   return (
-    <div>
+    <div className={theme}>
       <RouterProvider router={router} />
     </div>
   );

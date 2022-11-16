@@ -17,7 +17,7 @@ const Post = ({ post }) => {
 
   return (
     <div className="">
-      <div className="container p-5 rounded-lg bg-white shadow-lg mb-5">
+      <div className="container p-5 rounded-lg bg-white shadow-lg mb-5 dark:bg-slate-700">
         {/* Top user information and menu */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -25,31 +25,31 @@ const Post = ({ post }) => {
             <div className="" style={{ display: "flex", flexDirection: "column" }}>
               <Link
                 to={`/profile/${post.userId}`}>
-                <span className="cursor-pointer">{post.name}</span>
+                <span className="cursor-pointer dark:text-white">{post.name}</span>
               </Link>
-              <span className="text-sm text-gray-500">1 min ago</span>
+              <span className="text-sm text-gray-500 dark:text-gray-400">1 min ago</span>
             </div>
           </div>
-          <MoreHorizOutlinedIcon className='cursor-pointer'/>
+          <MoreHorizOutlinedIcon className='cursor-pointer dark:text-white'/>
         </div>
 
         {/* Post Card image and tile */}
-        <div className="mt-2">
+        <div className="mt-2 dark:text-white">
           <p>{post.desc}</p>
           <img className="w-full mt-5" src={post.img} alt="" style={{ maxHeight: "500px", objectFit: "cover" }} />
         </div>
 
         {/* card below buttons */}
         <div className="flex gap-3 pt-4">
-          <div className="flex items-center gap-1 text-xs md:text-sm cursor-pointer">
+          <div className="flex items-center gap-1 text-xs md:text-sm cursor-pointer dark:text-white">
             {liked?<FavoriteOutlinedIcon/>:<FavoriteBorderOutlinedIcon />}
             12 Likes
           </div>
-          <div className="flex items-center gap-1 text-xs md:text-sm cursor-pointer" onClick={() => setCommentOpen(!commentOpen)}>
+          <div className="dark:text-white flex items-center gap-1 text-xs md:text-sm cursor-pointer" onClick={() => setCommentOpen(!commentOpen)}>
             <TextsmsOutlinedIcon />
             12 Comments
           </div>
-          <div className="flex items-center gap-1 text-xs md:text-sm cursor-pointer">
+          <div className="dark:text-white flex items-center gap-1 text-xs md:text-sm cursor-pointer">
             <ShareOutlinedIcon />
             Share
           </div>

@@ -45,10 +45,10 @@ const Comments = () => {
                         <img src={comment.profilePicture} alt="" className="rounded-full" style={{ height: "36px", width: "40px", objectFit: "cover" }} />
                     </div>
                     <div className="flex flex-col items-start w-full" >
-                        <span className="text-base cursor-pointer">{comment.name}</span>
-                        <p className="text-xs md:text-sm text-gray-600">{comment.desc}</p>
+                        <span className="text-base cursor-pointer dark:text-white">{comment.name}</span>
+                        <p className="text-xs md:text-sm text-gray-600 dark:text-gray-300">{comment.desc}</p>
                     </div>
-                    <span className="text-xs text-gray-500">1 hour ago</span>
+                    <span className="text-xs text-gray-500 dark:text-gray-400">1 hour ago</span>
 
                 </div>
             ))}
