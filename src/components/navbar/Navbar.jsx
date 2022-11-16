@@ -6,22 +6,29 @@ import { Link } from "react-router-dom";
 import UnfoldMoreOutlinedIcon from '@mui/icons-material/UnfoldMoreOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import ChatBubbleOutlineOutlinedIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
+import { useContext } from "react";
+import { AuthContext } from "../../context/authContext";
+import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 
-const Navbar = () => {
+
+const Navbar = ({handleThemeSwitch, theme}) => {
+  const {currentUser} = useContext(AuthContext);
+
   return (
     <div className="">
 
-      <section className="py-3 px-6 bg-white shadow fixed-top">
+      <section className="py-3 px-6 bg-white dark:bg-slate-800 shadow fixed-top">
         <nav>
           <div className="relative flex items-center">
             <div className="flex items-center mr-auto">
               <button className="flex items-center">
                 <span className="flex justify-center items-center mr-3 w-10 h-10 bg-indigo-500 text-sm text-white rounded-full">
                   <Link to="/"><img src="https://images.pixieset.com/50867825/7ab15b10c830fbdbb34fa44bd479bcc6-thumb.png" alt="" width="28px" /></Link></span>
-                <p className="hidden lg:block text-sm font-medium mr-2">OanWave Social</p>
+                <p className="hidden lg:block text-sm font-medium mr-2 dark:text-gray-300">OanWave Social</p>
                 <div className="inline-block -mb-px">
                   <HomeOutlinedIcon className="text-gray-300 mr-3 hover:text-gray-500" />
-                  <DarkModeOutlinedIcon className="text-gray-300 mr-3 hover:text-gray-500" />
+                  {theme==="dark" ? (<WbSunnyOutlinedIcon onClick={handleThemeSwitch} className="text-gray-300 mr-3 hover:text-gray-500"/>) :
+                  (<DarkModeOutlinedIcon onClick={handleThemeSwitch} className="text-gray-300 mr-3 hover:text-gray-500"/>)}
                   <GridViewOutlinedIcon className="text-gray-300 mr-3 hover:text-gray-500" />
                 </div>
               </button>
@@ -41,7 +48,7 @@ const Navbar = () => {
                     <path d="M20.7 19.3L17 15.6C20.1 11.7 19.5 6 15.6 2.9C11.7 -0.2 5.99999 0.5 2.89999 4.3C-0.200006 8.2 0.499995 13.9 4.29999 17C7.59999 19.6 12.3 19.6 15.6 17L19.3 20.7C19.7 21.1 20.3 21.1 20.7 20.7C21.1 20.3 21.1 19.7 20.7 19.3ZM9.99999 17C6.09999 17 2.99999 13.9 2.99999 10C2.99999 6.1 6.09999 3 9.99999 3C13.9 3 17 6.1 17 10C17 13.9 13.9 17 9.99999 17Z" fill="currentColor"></path>
                   </svg>
                 </button>
-                <input className="pl-2 py-3 text-sm text-gray-200 w-64" type="text" placeholder="Type to search..." />
+                <input className="pl-2 py-3 text-sm text-gray-200 w-64 dark:bg-gray-700 dark:text-gray-400" type="text" placeholder="Type to search..." />
               </div>
             </div>
             <ul className="hidden lg:flex lg:justify-end mr-6">
@@ -54,8 +61,8 @@ const Navbar = () => {
             </ul>
             <div className="hidden lg:block">
               <button className="flex items-center">
-                <img className="w-10 h-10 mr-2 rounded-full object-cover object-right" src="https://images.pixieset.com/50867825/eeecd3326c1e4c06ce2a676dcc3af9ba-thumb.png" alt="" />
-                <p className="text-sm mr-3">Able Abel</p>
+                <img className="w-10 h-10 mr-2 rounded-full object-cover object-right" src={currentUser.profilePic} alt="" />
+                <p className="text-sm mr-3 dark:text-gray-100">{currentUser.name}</p>
                 <UnfoldMoreOutlinedIcon className="text-gray-200 hover:text-gray-500" />
               </button>
             </div>

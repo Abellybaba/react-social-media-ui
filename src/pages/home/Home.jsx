@@ -15,7 +15,7 @@ const Home = () => {
   // }
 
   return (
-    <div className="mt-10 p-6 py-10 bg-gray-100 max-h-screen overflow-scroll">
+    <div className="mt-10 p-6 py-10 bg-gray-100 dark:bg-slate-800 max-h-screen overflow-scroll">
       <div className='py-10 container rounded'>
         <Stories />
         <Posts/>
